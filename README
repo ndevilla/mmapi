@@ -1,0 +1,22 @@
+
+mmapi: an mmap/munmap interface
+
+   This pair of functions offers a hopefully simpler interface
+   to map/unmap files into memory using the system mmap/munmap calls.
+
+   When opening a new mapped file, a maximum size (in bytes) can be provided
+   to limit the mapping the first max_size bytes of the file. Providing
+   max_size=0 maps the entire file into memory.
+
+   A mapped file can be opened in two modes:
+   MAP_PRIVATE: all modifications to the returned buffer will only be
+   visible to the calling process.
+   MAP_SHARED: all modifications are visible to all processes mapping
+   the same file and will be propagated to disk.
+
+   A common use of these functions is to map special devices like
+   /dev/zero to allocate a block of memory.
+
+ND
+Fri Mar 25 16:38:45 CET 2011
+
